@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import '../UserData.css';
 import userLogData from '../userData.json';
 import HeatMapCard from './HeatMapCard';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import EditSquareIcon from '@mui/icons-material/EditSquare';
 
 const UserLogTable = () => {
   const [users, setUsers] = useState([]);
@@ -21,7 +24,7 @@ const UserLogTable = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   return (
     
-    <div className="userlog-container" style={{paddingLeft:'250px'}}>
+    <div className="userlog-container" style={{paddingLeft:'275px'}}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <h1 style={{ margin: 0 }}>User Log</h1>
             <div>
@@ -86,7 +89,7 @@ const UserLogTable = () => {
             <th>EMP ID</th>
             <th>Last Active</th>
             <th>Status</th>
-            <th>Action</th>
+            <th style={{paddingRight:'120px'}}>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -103,30 +106,62 @@ const UserLogTable = () => {
             <td>{user.lastActive}</td>
             <td>{user.status}</td>
             <td>
-            <div className="status-dots">
-                <span className="dot blue"></span>
-                <span className="dot green"></span>
-                <span className="dot red"></span>
-                <span className="dot yellow"></span>
-            </div>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <div style={{
+                  backgroundColor: '#e7f1ff',
+                  borderRadius: '50%',
+                  padding: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  marginLeft: '45px'
+                }}>
+                  <VisibilityIcon style={{ color: '#007bff' }} />
+                </div>
+                <div style={{
+                  backgroundColor: '#e6f4ea',
+                  borderRadius: '50%',
+                  padding: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}>
+                  <EditSquareIcon style={{ color: '#28a745' }} />
+                </div>
+                <div style={{
+                  backgroundColor: '#fdecea',
+                  borderRadius: '50%',
+                  padding: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}>
+                  <DeleteOutlineIcon style={{ color: '#dc3545' }} />
+                </div>
+              </div>
             </td>
         </tr>
         ))}
         </tbody>
       </table>
+
+
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: '20px',
-        flexWrap: 'wrap'
+        // flexWrap: 'wrap'
         }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <select
             style={{
-                padding: '6px 12px',
-                borderRadius: '6px',
-                border: '1px solid #ccc'
+              padding: '6px 12px',
+              borderRadius: '6px',
+              border: '1px solid #ccc'
             }}
             >
             <option value="10">10</option>

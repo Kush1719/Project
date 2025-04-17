@@ -23,7 +23,7 @@ const Sidebar = () => {
   const classes = useStyles();
   return (
     <Drawer variant="permanent" anchor="left">
-      <div style={{ width: 245, backgroundColor: "#f8f9fa", height: "100vh", display: "flex", flexDirection: "column", alignItems: "flex-start", overflowX: "hidden"}}>
+      <div style={{ width: 265, backgroundColor: "#f8f9fa", height: "100vh", display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -46,91 +46,135 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <List sx={{ width: '200%' }}>
-          <ListItem component={Link} to="/dashboard" 
-            button
-            sx={{
-              '&:hover': {
-                backgroundColor: 'red',
-                color: 'white',
-                borderRadius: '10px',
-              },
-            }}
-          >
-            <DashboardIcon style={{color:'black'}}/>
-            <ListItemText primary="Dashboard" style={{marginLeft:'20px', color:'black'}}/>
-            <KeyboardArrowDownIcon style={{color:'black', marginRight:'230px'}}/>
-          </ListItem>
+        <List sx={{ width: '100%' }}>
+        <ListItem
+          component={Link}
+          to="/dashboard"
+          button
+          sx={{
+            '&:hover': {
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '10px',
+            },
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <DashboardIcon style={{ color: 'black' }} />
+              <ListItemText primary="Dashboard" style={{ marginLeft: '20px', color: 'black' }} />
+            </div>
+            <KeyboardArrowDownIcon style={{ color: 'black' }} />
+          </div>
+        </ListItem>
 
-          <ListItem
-          component={Link} 
-          to="/summary-metrics" 
-            button
-            sx={{
-              '&:hover': {
-                backgroundColor: 'red',
-                color: 'white',
-                borderRadius: '10px',
-              },
-            }}
-          >
-            <AnalyticsIcon style={{color:'black'}}/>
-            <ListItemText primary="Summary Metrics" style={{marginLeft:'20px',color:'black'}}/>
-            <KeyboardArrowDownIcon style={{color:'black', marginRight:'230px'}}/>
-          </ListItem>
 
-          <ListItem
-            button
-            component={Link} 
-            to="/badge-analytics" 
-            sx={{
-              '&:hover': {
-                backgroundColor: 'red',
-                color: 'white',
-                borderRadius: '10px',
-              },
-            }}
-          >
-            <BadgeIcon style={{color:'black'}} />
-            <ListItemText primary="Badge Analytics" style={{marginLeft:'20px',color:'black'}} />
-            <KeyboardArrowDownIcon style={{color:'black', marginRight:'230px'}}/>
-          </ListItem>
+        <ListItem
+          component={Link}
+          to="/summary-metrics"
+          button
+          sx={{
+            '&:hover': {
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '10px',
+            },
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <AnalyticsIcon style={{ color: 'black' }} />
+              <ListItemText primary="Summary Metrics" style={{ marginLeft: '20px', color: 'black' }} />
+            </div>
+            <KeyboardArrowDownIcon style={{ color: 'black' }} />
+          </div>
+        </ListItem>
 
-          <ListItem
-            button
-            component={Link} 
-            to="/completion-summary" 
-            sx={{
-              '&:hover': {
-                backgroundColor: 'red',
-                color: 'white',
-                borderRadius: '10px',
-              },
-            }}
-          >
-            <CompletionIcon style={{color:'black'}} />
-            <ListItemText primary="Completion Summary" style={{marginLeft:'20px',color:'black'}} />
-            <KeyboardArrowDownIcon style={{color:'black', marginRight:'230px'}}/>
-          </ListItem>
-
-          <ListItem
-          component={Link} 
-          to="/user-log" 
-            button
-            sx={{
-              '&:hover': {
-                backgroundColor: 'red',
-                color: 'white',
-                borderRadius: '10px',
-              },
-            }}
-          >
-            <UserIcon style={{color:'black'}} />
-            <ListItemText primary="User Log" style={{marginLeft:'20px',color:'black'}} />
-            <ListItemIcon sx={{ color: 'inherit' }}>
-              <KeyboardArrowDownIcon style={{color:'black', marginRight:'230px'}}/>
-            </ListItemIcon>
-          </ListItem>
+        <ListItem
+          component={Link}
+          to="/badge-analytics"
+          button
+          sx={{
+            '&:hover': {
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '10px',
+            },
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <BadgeIcon style={{ color: 'black' }} />
+              <ListItemText primary="Badge Analytics" style={{ marginLeft: '20px', color: 'black' }} />
+            </div>
+            <KeyboardArrowDownIcon style={{ color: 'black' }} />
+          </div>
+        </ListItem>
+        <ListItem
+          component={Link}
+          to="/completion-summary"
+          button
+          sx={{
+            '&:hover': {
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '10px',
+            },
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <CompletionIcon style={{ color: 'black' }} />
+              <ListItemText primary="Completion Summary" style={{ marginLeft: '20px', color: 'black' }} />
+            </div>
+            <KeyboardArrowDownIcon style={{ color: 'black' }} />
+          </div>
+        </ListItem>
+        <ListItem
+          component={Link}
+          to="/user-log"
+          button
+          sx={{
+            '&:hover': {
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '10px',
+            },
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <UserIcon style={{ color: 'black' }} />
+              <ListItemText primary="User Log" style={{ marginLeft: '20px', color: 'black' }} />
+            </div>
+            <KeyboardArrowDownIcon style={{ color: 'black' }} />
+          </div>
+        </ListItem>
         </List>
       </div>
     </Drawer>

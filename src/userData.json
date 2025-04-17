@@ -1,72 +1,82 @@
 [
-    {
-      "sl": 1,
-      "name": "Kathryn Murphy",
-      "empId": "STTGDC0001",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 2,
-      "name": "Annette Black",
-      "empId": "STTGDC0002",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 3,
-      "name": "Ronald Richards",
-      "empId": "STTGDC0003",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 4,
-      "name": "Eleanor Pena",
-      "empId": "STTGDC0004",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 5,
-      "name": "Leslie Alexander",
-      "empId": "STTGDC0005",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 6,
-      "name": "Albert Flores",
-      "empId": "STTGDC0006",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 7,
-      "name": "Jacob Jones",
-      "empId": "STTGDC0007",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 8,
-      "name": "Jerome Bell",
-      "empId": "STTGDC0008",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 9,
-      "name": "Marvin McKinney",
-      "empId": "STTGDC0009",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    },
-    {
-      "sl": 10,
-      "name": "Cameron Williamson",
-      "empId": "STTGDC0010",
-      "lastActive": "April 5, 2025",
-      "status": "Module 3: Completed"
-    }
+  {
+    "sl": 1,
+    "name": "Kathryn Murphy",
+    "empId": "STTGDC0001",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Task Master"]
+  },
+  {
+    "sl": 2,
+    "name": "Annette Black",
+    "empId": "STTGDC0002",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Explorer Extraordinaire"]
+  },
+  {
+    "sl": 3,
+    "name": "Ronald Richards",
+    "empId": "STTGDC0003",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Fast Learner"]
+  },
+  {
+    "sl": 4,
+    "name": "Eleanor Pena",
+    "empId": "STTGDC0004",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Knowledge Keeper"]
+  },
+  {
+    "sl": 5,
+    "name": "Leslie Alexander",
+    "empId": "STTGDC0005",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Trailblaizer"]
+  },
+  {
+    "sl": 6,
+    "name": "Albert Flores",
+    "empId": "STTGDC0006",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Task Master"]
+  },
+  {
+    "sl": 7,
+    "name": "Jacob Jones",
+    "empId": "STTGDC0007",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Explorer Extraordinaire"]
+  },
+  {
+    "sl": 8,
+    "name": "Jerome Bell",
+    "empId": "STTGDC0008",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Fast Learner"]
+  },
+  {
+    "sl": 9,
+    "name": "Marvin McKinney",
+    "empId": "STTGDC0009",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Knowledge Keeper"]
+  },
+  {
+    "sl": 10,
+    "name": "Cameron Williamson",
+    "empId": "STTGDC0010",
+    "lastActive": "April 5, 2025",
+    "status": "Module 3: Completed",
+    "badges": ["Trailblaizer"]
+  }
 ]  
