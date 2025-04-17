@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
+import SummaryMetrics from './pages/SummaryMetrics';
+import BadgeAnalytics from './pages/BadgeAnalytics';
+import CompletionSummary from './pages/CompletionSummary';
+import UserLog from './pages/UserLog';
+import Header from './components/Header';
+import Footer from './components/Footer';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <div>
+          <Sidebar />
+          <div>
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/summary-metrics" element={<SummaryMetrics />} />
+              <Route path="/badge-analytics" element={<BadgeAnalytics />} />
+              <Route path="/completion-summary" element={<CompletionSummary />} />
+              <Route path="/user-log" element={<UserLog />} />
+            </Routes>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
