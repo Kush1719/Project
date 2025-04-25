@@ -1,12 +1,17 @@
 import React from 'react';
+import { useCollapse } from '../context/CollapseContext';
 
 const Dashboard = () => {
+  const { isCollapsed } = useCollapse();
+
   return (
-    <div style={{ marginLeft: 265, padding: '20px', paddingBottom: '60px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h3 style={{ margin: 0 }}>Summary Metrics for key stats</h3>
-        <div>
-          <label htmlFor="filter" style={{ marginRight: '8px', fontWeight: '500' }}>Filter</label>
+    <div className={`content ${isCollapsed ? 'collapsed' : ''}`}>
+      <div className={`for ${isCollapsed ? 'collapsed' : ''}`} style={{ display: 'flex', marginTop: '67px' }}>
+        <div className="header" id="header-title">
+          Summary Metrics of Key Stats
+        </div>
+        <div style={{ marginLeft: 'auto' }}>
+          <label htmlFor="filter" className="label-filter">Filter</label>
         </div>
       </div>
     </div>

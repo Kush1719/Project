@@ -1,184 +1,87 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import { Image } from 'react-bootstrap';
-import { makeStyles } from '@mui/styles';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import AnalyticsIcon from '@mui/icons-material/Assessment';
-import BadgeIcon from '@mui/icons-material/ConfirmationNumber';
-import CompletionIcon from '@mui/icons-material/CheckCircle';
-import UserIcon from '@mui/icons-material/Person';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
-const useStyles = makeStyles({
-  menuItem: {
-    '&:hover': {
-      backgroundColor: 'red',
-      color: 'white',
-    },
-  },
-});
+import { Drawer, List, ListItem, ListItemText } from '@mui/material';
+import PentagonOutlinedIcon from '@mui/icons-material/PentagonOutlined';
+import PieChartOutlineIcon from '@mui/icons-material/PieChartOutline';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
+import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
+import { useCollapse } from '../context/CollapseContext'; // ✅ import context
+import '../assets/css/global.css';
 
 const Sidebar = () => {
-  const classes = useStyles();
+  const { isCollapsed } = useCollapse(); // ✅ use context
+
   return (
-    <Drawer variant="permanent" anchor="left">
-      <div style={{ width: 265, backgroundColor: "#f8f9fa", height: "100vh", display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '16px',
-          width: '100%',
-          borderBottom: '2px solid #ddd',
-          borderLeft: '2px solid #ddd',
-          paddingLeft: '16px',
-        }}>
-          <Image
+    <Drawer variant="permanent" className="me" anchor="left">
+      <div className={`main ${isCollapsed ? 'collapsed' : ''}`}>
+        <div className="left">
+          <img
             src={require('../assets/logo.jpg')}
             alt="Company Logo"
-            style={{ width: '40px', height: '40px', marginRight: '8px' }}
+            className="sidebar-logo"
+            style={{ cursor: 'pointer' }}
           />
-          <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' }}>
-            STTelemedia
-            <div style={{ fontWeight: 'normal', fontSize: '14px', color: '#666' }}>
-              Global Data Centres
+          {!isCollapsed && (
+            <div className="sidebar-logo-text">
+              STTelemedia
+              <div className="sidebar-subtext">Global Data Centres</div>
             </div>
-          </div>
+          )}
         </div>
 
-        <List sx={{ width: '100%' }}>
-        <ListItem
-          component={Link}
-          to="/dashboard"
-          button
-          sx={{
-            '&:hover': {
-              backgroundColor: 'red',
-              color: 'white',
-              borderRadius: '10px',
-            },
-          }}
-        >
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <DashboardIcon style={{ color: 'black' }} />
-              <ListItemText primary="Dashboard" style={{ marginLeft: '20px', color: 'black' }} />
-            </div>
-            <KeyboardArrowDownIcon style={{ color: 'black' }} />
-          </div>
-        </ListItem>
-
-
-        <ListItem
-          component={Link}
-          to="/summary-metrics"
-          button
-          sx={{
-            '&:hover': {
-              backgroundColor: 'red',
-              color: 'white',
-              borderRadius: '10px',
-            },
-          }}
-        >
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <AnalyticsIcon style={{ color: 'black' }} />
-              <ListItemText primary="Summary Metrics" style={{ marginLeft: '20px', color: 'black' }} />
-            </div>
-            <KeyboardArrowDownIcon style={{ color: 'black' }} />
-          </div>
-        </ListItem>
-
-        <ListItem
-          component={Link}
-          to="/badge-analytics"
-          button
-          sx={{
-            '&:hover': {
-              backgroundColor: 'red',
-              color: 'white',
-              borderRadius: '10px',
-            },
-          }}
-        >
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <BadgeIcon style={{ color: 'black' }} />
-              <ListItemText primary="Badge Analytics" style={{ marginLeft: '20px', color: 'black' }} />
-            </div>
-            <KeyboardArrowDownIcon style={{ color: 'black' }} />
-          </div>
-        </ListItem>
-        <ListItem
-          component={Link}
-          to="/completion-summary"
-          button
-          sx={{
-            '&:hover': {
-              backgroundColor: 'red',
-              color: 'white',
-              borderRadius: '10px',
-            },
-          }}
-        >
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <CompletionIcon style={{ color: 'black' }} />
-              <ListItemText primary="Completion Summary" style={{ marginLeft: '20px', color: 'black' }} />
-            </div>
-            <KeyboardArrowDownIcon style={{ color: 'black' }} />
-          </div>
-        </ListItem>
-        <ListItem
-          component={Link}
-          to="/user-log"
-          button
-          sx={{
-            '&:hover': {
-              backgroundColor: 'red',
-              color: 'white',
-              borderRadius: '10px',
-            },
-          }}
-        >
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <UserIcon style={{ color: 'black' }} />
-              <ListItemText primary="User Log" style={{ marginLeft: '20px', color: 'black' }} />
-            </div>
-            <KeyboardArrowDownIcon style={{ color: 'black' }} />
-          </div>
-        </ListItem>
+        <List className="sidebar-list">
+          <SidebarItem
+            to="/dashboard"
+            icon={<PentagonOutlinedIcon />}
+            label="Dashboard"
+            isCollapsed={isCollapsed}
+          />
+          <SidebarItem
+            to="/summary-metrics"
+            icon={<PieChartOutlineIcon />}
+            label="Summary Metrics"
+            isCollapsed={isCollapsed}
+          />
+          <SidebarItem
+            to="/badge-analytics"
+            icon={<GroupsOutlinedIcon />}
+            label="Badge Analytics"
+            isCollapsed={isCollapsed}
+          />
+          <SidebarItem
+            to="/completion-summary"
+            icon={<HowToRegOutlinedIcon />}
+            label="Completion Summary"
+            isCollapsed={isCollapsed}
+          />
+          <SidebarItem
+            to="/user-log"
+            icon={<ManageAccountsOutlinedIcon />}
+            label="User Log"
+            isCollapsed={isCollapsed}
+          />
         </List>
       </div>
     </Drawer>
   );
 };
+
+const SidebarItem = ({ to, icon, label, isCollapsed }) => (
+  <ListItem
+    component={Link}
+    to={to}
+    button
+    className="sidebar-hover-red"
+    sx={{ my: 1, mx: 1.7, borderRadius: '16px' }}
+  >
+    <div className="sidebar-list-item">
+      <div className={`sidebar-list-inner ${isCollapsed ? 'collapsed' : ''}`}>
+        <div className="sidebar-icon">{icon}</div>
+        {!isCollapsed && <ListItemText primary={label} className="sidebar-text" />}
+      </div>
+    </div>
+  </ListItem>
+);
 
 export default Sidebar;

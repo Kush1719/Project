@@ -1,93 +1,102 @@
-import React from 'react';
-import { Navbar } from 'react-bootstrap';
-import { IconButton, Badge } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {AppBar, Toolbar, IconButton, Badge, Menu, MenuItem, Box} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { Image } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import { useCollapse } from '../context/CollapseContext';
+import '../assets/css/global.css';
 
 const Header = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate();
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    handleMenuClose();
+    navigate('/');
+    toast.success('Successfully logged out!');
+  };
+
+  const [style, setStyle] = useState({
+    width: 'calc(100% - 240px)',
+    marginLeft: '240px',
+    backgroundColor: 'white',
+    boxShadow: 'none'
+  });
+
+  const { isCollapsed, setIsCollapsed } = useCollapse();
+  const handleSidebarToggle = () => {
+    setIsCollapsed(prev => !prev);
+  };
+  
   return (
-    <Navbar
-      bg="light"
-      expand="lg"
-      style={{
-        marginLeft: 265,
-        padding: '8px 16px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingTop: '30px',
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <IconButton edge="start" color="inherit" aria-label="menu" style={{ marginRight: '20px' }}>
-          <MenuIcon />
-        </IconButton>
-        <Navbar.Brand
-          style={{
-            paddingLeft: 20,
-            fontWeight: 'bold',
-            marginBottom: 0,
-            paddingBottom: 9,
-          }}
-        >
-          Summary Metrics of key stats
-        </Navbar.Brand>
-      </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginRight: '10px' }}>
-        {/* Sun Icon */}
-        <IconButton style={{ backgroundColor: '#f0f0f0' }}>
-          <LightModeIcon />
-        </IconButton>
-
-        <div
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: '50%',
-            overflow: 'hidden',
-            backgroundColor: '#f0f0f0',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <img
-            src="https://flagcdn.com/us.svg"
-            alt="US Flag"
-            style={{ width: '24px', height: '24px' }}
-          />
-        </div>
-
-        {/* Mail Icon */}
-        <IconButton style={{ backgroundColor: '#f0f0f0' }}>
-          <MailOutlineIcon />
-        </IconButton>
-
-        {/* Notification Icon with Red Dot */}
-        <Badge variant="dot" color="error" overlap="circular">
-          <IconButton style={{ backgroundColor: '#f0f0f0' }}>
-            <NotificationsNoneIcon />
+    <AppBar className={`app-header ${isCollapsed ? 'collapsed' : ''}`} sx={{...style,left:'27px',height:'72px',zIndex:'0'}}>
+      <Toolbar className="navbar" sx={{ justifyContent: 'space-between'}}>
+        <Box className="box" display="flex" alignItems="center">
+          <div className='header-left'>
+          <IconButton onClick={handleSidebarToggle} sx={{ color: '#111827', mr: 2 }}>
+            <MenuIcon />
           </IconButton>
-        </Badge>
+          <Box className="header-title" sx={{ fontWeight: 700, fontSize: 20, marginLeft:'-20px'}}>
+            Summary Metrics of key stats
+          </Box>
+          </div>
+        </Box>
+        <div className='header-right'>
+          <Box display="flex" alignItems="center" gap={2}>
+            <IconButton className="header-icon">
+              <LightModeIcon />
+            </IconButton>
 
-        {/* Profile Image */}
-        <Image
-          src={require('../assets/pic.jpg')}
-          alt="Profile"
-          style={{
-            width: 40,
-            height: 40,
-            marginTop: 5,
-            borderRadius: '50%',
-            objectFit: 'cover',
-          }}
-        />
-      </div>
-    </Navbar>
+            <Box className="header-flag">
+              <img
+                src="https://flagcdn.com/us.svg"
+                alt="US Flag"
+                className="flag-img"
+              />
+            </Box>
+
+            <IconButton className="header-icon">
+              <MailOutlineIcon />
+            </IconButton>
+
+            <Badge variant="dot" color="error" overlap="circular">
+              <IconButton className="header-icon">
+                <NotificationsNoneIcon />
+              </IconButton>
+            </Badge>
+
+            <img
+              src={require('../assets/pic.png')}
+              alt="Profile"
+              className="profile-img"
+              onClick={handleMenuOpen}
+              style={{ cursor: 'pointer' }}
+            />
+
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            >
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </Menu>
+          </Box>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 };
 
