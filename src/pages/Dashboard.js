@@ -6,7 +6,7 @@ const Dashboard = () => {
 
   return (
     <div className={`content ${isCollapsed ? 'collapsed' : ''}`}>
-      <div className={`for ${isCollapsed ? 'collapsed' : ''}`} style={{ display: 'flex', marginTop: '67px' }}>
+      <div className={`for ${isCollapsed ? 'collapsed' : ''}`} style={{ display: 'flex', marginTop: '67px'}}>
         <div className="header" id="header-title">
           Summary Metrics of Key Stats
         </div>

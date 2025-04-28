@@ -27,20 +27,13 @@ const Header = () => {
     toast.success('Successfully logged out!');
   };
 
-  const [style, setStyle] = useState({
-    width: 'calc(100% - 240px)',
-    marginLeft: '240px',
-    backgroundColor: 'white',
-    boxShadow: 'none'
-  });
-
   const { isCollapsed, setIsCollapsed } = useCollapse();
   const handleSidebarToggle = () => {
     setIsCollapsed(prev => !prev);
   };
   
   return (
-    <AppBar className={`app-header ${isCollapsed ? 'collapsed' : ''}`} sx={{...style,left:'27px',height:'72px',zIndex:'0'}}>
+    <AppBar className={`app-header ${isCollapsed ? 'collapsed' : ''}`} sx={{width: 'calc(100% - 240px)',marginLeft: '240px',backgroundColor: 'white',boxShadow: 'none',left:'25px',height:'72px'}}>
       <Toolbar className="navbar" sx={{ justifyContent: 'space-between'}}>
         <Box className="box" display="flex" alignItems="center">
           <div className='header-left'>
@@ -54,43 +47,19 @@ const Header = () => {
         </Box>
         <div className='header-right'>
           <Box display="flex" alignItems="center" gap={2}>
-            <IconButton className="header-icon">
-              <LightModeIcon />
-            </IconButton>
+            <IconButton className="header-icon"> <LightModeIcon /> </IconButton>
 
             <Box className="header-flag">
-              <img
-                src="https://flagcdn.com/us.svg"
-                alt="US Flag"
-                className="flag-img"
-              />
+              <img src="https://flagcdn.com/us.svg" alt="US Flag" className="flag-img"/>
             </Box>
 
-            <IconButton className="header-icon">
-              <MailOutlineIcon />
-            </IconButton>
-
+            <IconButton className="header-icon"><MailOutlineIcon className="custom-icon" /> </IconButton>
             <Badge variant="dot" color="error" overlap="circular">
-              <IconButton className="header-icon">
-                <NotificationsNoneIcon />
-              </IconButton>
+              <IconButton className="header-icon"><NotificationsNoneIcon /> </IconButton>
             </Badge>
 
-            <img
-              src={require('../assets/pic.png')}
-              alt="Profile"
-              className="profile-img"
-              onClick={handleMenuOpen}
-              style={{ cursor: 'pointer' }}
-            />
-
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            >
+            <img src={require('../assets/pic.png')} alt="Profile" className="profile-img" onClick={handleMenuOpen} style={{ cursor: 'pointer' }}/>
+            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} transformOrigin={{ vertical: 'top', horizontal: 'right' }}>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </Box>

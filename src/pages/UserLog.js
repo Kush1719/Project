@@ -106,10 +106,10 @@ const UserLogTable = () => {
                 <MenuItem value="100">100</MenuItem>
               </Select>
             </FormControl>
-            <span style={{marginLeft:'20px'}}>Showing 1 to 10 of 12 entries</span>
+            <span className='spann' style={{marginLeft:'20px'}}>Showing 1 to 10 of 12 entries</span>
           </div>
           <div className="pagination-buttons">
-            <Button className="pagination-button" style={{color:'black', backgroundColor:'white', marginRight:'-15px'}}>{`<<`}</Button>
+            <Button className="pagination-button" style={{color:'black', backgroundColor:'white', marginLeft: window.innerWidth <= 768 ? '4px' : undefined}}>{`<<`}</Button>
             {[1, 2, 3, 4, 5].map((num) => (
               <Button
                 key={num}
@@ -123,7 +123,7 @@ const UserLogTable = () => {
                 {num}
               </Button>
             ))}
-            <Button className="pagination-button" style={{color:'black', backgroundColor:'white', paddingRight: '39px'}}>{`>>`}</Button>
+            <Button className="pagination-button" style={{color:'black', backgroundColor:'white', marginLeft: '-5px'}}>{`>>`}</Button>
           </div>
         </div>
       </div>

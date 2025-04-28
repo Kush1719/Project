@@ -34,7 +34,7 @@ function BadgeAnalyticsReport() {
         <label htmlFor="filter" className="label-filter">Filter</label>
       </div>
 
-      <div className={`badge-report-card ${isCollapsed ? 'collapsed' : ''}`} style={isCollapsed ? { marginLeft: '-180px' } : {}}>
+      <div className={`badge-report-card ${isCollapsed ? 'collapsed' : ''}`} style={isCollapsed ? { marginLeft: '-178px' } : {}}>
         <div className="badge-report-header">
           <h5 className="mb-0">Badge Analytics Reports</h5>
           <span className="view-all-link">View All &gt;</span>
