@@ -1,27 +1,13 @@
 import React from 'react';
-
+import '../assets/css/global.css';
+import { useCollapse } from '../context/CollapseContext';
 const Footer = () => {
+  const { isCollapsed } = useCollapse();
   return (
-    <footer
-      style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 255,
-        right: 0,
-        height: '40px',
-        backgroundColor: 'white',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '0 20px',
-        fontSize: '14px',
-        zIndex: 1000,
-      }}
-    >
-      <div>© 2024 Company Name. All Rights Reserved.</div>
-      <div>
-        Made by{' '}
-        <span style={{ color: 'skyblue', fontWeight: 'bold'}}>Vosmos</span>
+    <footer className={`app-footer ${isCollapsed ? 'collapsed' : ''}`}>
+      <div className="footer-left">© 2024 Company Name. All Rights Reserved.</div>
+      <div className="footer-right">
+        Made by <span className="footer-highlight">Vosmos</span>
       </div>
     </footer>
   );
